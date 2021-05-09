@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>密码框验证信息</title>
+    <style type="text/css">
+        div{
+            width: 600px;
+            margin: 100px auto;
+        }
+        .message{
+            display: inline-block;
+            font-size: 12px;
+            color: #999;
+            background: url(./images/wrong.png) no-repeat left center;
+            padding-left: 20px;
+        }
+        .wrong{
+            color: red;
+            background-image: url(./images/false.png);
+        }
+        .right{
+            color: green;
+            background-image: url(./images/right.png);
+        }
+    </style>
+</head>
+<!-- 
+    案例分析：
+        1.首先判断的事件是表单失去焦点onblur
+        2.如果输入正确则提示正确的信息，颜色为绿色小图标变化
+        3.如果输入不是6-16位，则提示错误信息，颜色为红色小图标变化
+        4.因为里面变化样式较多，采取className修改样式
+ -->
+<body>
+    <div class="register">
+        <form action="">
+            <label for="">密码：</label>
+            <input type="text" class="ipt">
+            <p class="message">请输入6-16位密码</p>
+        </form>
+    </div>
+    <script type="text/javascript">
+        // 1.获取元素 
+        var ipt = document.querySelector('.ipt');
+        var message = document.querySelector('.message');
+        // 2.注册事件 失去焦点
+        ipt.onblur = function(){
+            // 根据表单里面值的长度 ipt.value.length
+            if(this.value.length < 6 || this.value.length > 16) {
+                // console.log("错误");
+                message.className = 'message wrong';
+                message.innerHTML = "您输入的位数不对，要求6-16位"
+            }else{
+                message.className = 'message right';
+                message.innerHTML = '您输入的正确';
+            }
+        }
+    </script>
+</body>
+</html>

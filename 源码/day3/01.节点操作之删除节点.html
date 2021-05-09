@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>节点操作之删除节点</title>
+    <style>
+        input{
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+    <button>删除</button>
+    <input type="text">
+    <button>添加</button>
+    <ul>
+        <li>熊大</li>
+        <li>熊二</li>
+        <li>光头强</li>
+    </ul>
+    <script>
+        // 1.获取元素
+        var ul = document.querySelector('ul');
+        var btn = document.querySelector('button');
+        // 获取第二个button
+        var add = document.getElementsByTagName('button')[1];
+        var text = document.querySelector('input');
+        btn.onclick = function(){
+            // 2.删除元素 node.removeChild(child)
+            if(ul.children.length == 0) {
+                // 禁用按钮
+                this.disabled = true;
+            }else{
+                ul.removeChild(ul.children[0]);
+            }
+        }
+        add.onclick = function(){
+            if (text.value == '') {
+                alert('您还没有输入你的留言噢！');
+                return false;
+            } else {
+                var li = document.createElement('li');
+                li.innerHTML = text.value;
+                ul.insertBefore(li,ul.children[0]);
+            }
+        }
+    </script>
+</body>
+</html>

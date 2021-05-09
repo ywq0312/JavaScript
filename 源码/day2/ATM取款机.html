@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+		var money = 100;
+		while(true){
+			var num = prompt("请输入您要进行的要求：" + '\n' + '1.存钱' + '\n' +'2.取钱' + '\n' + '3.显示余额' + '\n' + '4.退出');
+			if(num == '1'){
+				var add = parseFloat(prompt("请输入存的钱数："));
+				money += add;
+				alert('你现在的钱数是：' + money);
+			}else if(num == '2'){
+				var sub = parseFloat(prompt("请输入取得钱数："));
+				money -= sub;
+				alert('你现在的钱数是：' + money);
+			}else if(num == '3'){
+				alert("你现在的钱数是：" + money);
+			}else{
+				alert("正在退出...");
+				break;
+			}
+		}
+		</script>
+	</head>
+
+	<body>
+	</body>
+
+</html>

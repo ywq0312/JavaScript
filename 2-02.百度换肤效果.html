@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>百度换肤</title>
+    <style>
+        body{
+            background: url(./images/bg1.jpg) center top;
+        }
+        div{
+            width: 500px;
+            height: 300px;
+            margin: 200px auto;
+        }
+        img{
+            width: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div class="tu">
+        <img src="./images/bg1.jpg" alt="">
+        <img src="./images/bg2.jpg" alt="">
+        <img src="./images/bg3.jpg" alt="">
+    </div>
+    <!-- 
+        案例分析：
+        1.元素注册事件
+        2.给3个图片利用循环注册点击事件
+        3.当我们点击了这个图片，让我们页面背景改为当前的图片
+        4.核心算法：把当前图片的src路径获取过来，给body做背景即可
+     -->
+    <script>
+        //获取元素
+        var imgs = document.querySelector('.tu').querySelectorAll('img');
+        //循环注册事件
+        for(var i = 0;i < imgs.length;i++){
+            imgs[i].onclick = function() {
+                //this.src是点击图片的路径
+                //把这个路径this.src给body就好了
+                document.body.style.backgroundImage = 'url(' + this.src + ')';
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>循环精灵图</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+            width: 600px;
+            margin: 100px auto;
+        }
+        .box li{
+            float: left;
+            width: 128px;
+            height: 100px;
+            background-color: aqua;
+            background: url(./images/Sprite.png) no-repeat;
+        }
+    </style>
+    <!-- 
+        案例分析
+        1.首先精灵图排列有规律的
+        2.核心思路：利用for循环，修改精灵图片的背景位置background-position
+        3.让循环里面的索引号i*图片的间隔宽度就是每个图片的y坐标
+        （注意精灵图的移动是和平常x、y轴的正负是不一样的，当精灵图是竖着的图片的时候，图片需要向上移动，
+        向上移动的y轴是正整数，所以索引号i乘以正数，若精灵图是横向的精灵图，则当精灵图向左移动时，是向
+        负号那里移动，所以索引号i乘以的负数）
+     -->
+</head>
+<body>
+    <div class="box">
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+    <script type="text/javascript">
+        // 1.获取元素 所有的li
+        var lis = document.querySelectorAll('li');
+        for(var i = 0; i < lis.length; i++){
+            // 让索引号乘以每个小图片的宽度就是每个li的背景x坐标，index就是我们的x坐标
+            var index = i * -128;
+            // px后面的空格是因为表示坐标x y轴之间的空格，例-40 0 之间有一个空格一样
+            lis[i].style.backgroundPosition = index + 'px ' + '0';
+        }
+    </script>
+</body>
+</html>
