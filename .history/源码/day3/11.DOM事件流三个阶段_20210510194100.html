@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM事件流三个阶段</title>
+    <style>
+
+    </style>
+</head>
+<body>
+    <div class="father">
+        <div class="son">son盒子</div>
+    </div>
+    <script>
+        // dom 事件流 三个阶段
+        // 1.JS代码中只能执行捕获或者冒泡其中的一个阶段
+        // 2.onclick 和 attachEvent（ie专有）只能得到冒泡阶段
+        // 3.捕获阶段 ru
+        var son = document.querySelector('.son');
+        son.addEventListener('click',function(){},)
+    </script>
+</body>
+</html>

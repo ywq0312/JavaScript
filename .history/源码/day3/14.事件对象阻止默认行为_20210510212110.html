@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>事件对象阻止默认行为</title>
+    <style>
+
+    </style>
+</head>
+<body>
+    <div>123</div>
+    <a href="http://www.baidu.com">百度</a>
+    <form action="http://www.baidu.com">
+        <input type="submit" name="sub" value="提交" id="">
+    </form>
+    <script>
+        // 常见事件对象的属性和方法
+        // 1.返回事件类型
+        var div = document.querySelector('div');
+        div.addEventListener('click',fn);
+        function fn(e){
+            console.log(e.type);
+        }
+        // 2.阻止默认行为（s）
+    </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>常见事件对象属性和方法</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <div>123</div>
+    <ul>
+        <li>123</li>
+        <li>123</li>
+        <li>123</li>
+    </ul>
+    <script>
+        // 常见事件对象的属性和方法
+        // e
+        var div = document.querySelector('div');
+        // 注：一定要有事件对象（即小括号里的event或者e），才能调用里面的方法
+        div.addEventListener('click',function(e){
+            console.log(e.target);
+        })
+    </script>
+</body>
+</html>
